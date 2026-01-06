@@ -1,0 +1,37 @@
+magic
+tech gf180mcuD
+magscale 1 10
+timestamp 1767658308
+<< nwell >>
+rect -30 670 254 1122
+<< psubdiff >>
+rect 0 28 224 41
+rect 0 -28 84 28
+rect 140 -28 224 28
+rect 0 -41 224 -28
+<< nsubdiff >>
+rect 0 1036 224 1050
+rect 0 980 84 1036
+rect 140 980 224 1036
+rect 0 966 224 980
+<< psubdiffcont >>
+rect 84 -28 140 28
+<< nsubdiffcont >>
+rect 84 980 140 1036
+<< metal1 >>
+rect 0 1036 224 1068
+rect 0 980 84 1036
+rect 140 980 224 1036
+rect 0 948 224 980
+rect 0 28 224 60
+rect 0 -28 84 28
+rect 140 -28 224 28
+rect 0 -60 224 -28
+<< labels >>
+rlabel metal1 168 0 168 0 3 GND
+port 1 e
+rlabel metal1 168 1008 168 1008 3 VDD
+port 2 e
+<< properties >>
+string FIXED_BBOX 0 0 224 1008
+<< end >>
