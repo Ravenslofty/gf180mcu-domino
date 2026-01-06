@@ -1,0 +1,106 @@
+magic
+tech gf180mcuD
+magscale 1 10
+timestamp 1767663633
+<< nwell >>
+rect -30 670 478 1122
+rect -15 601 463 670
+<< nmos >>
+rect 196 196 252 252
+<< pmos >>
+rect 196 700 252 868
+<< ndiff >>
+rect 71 252 153 265
+rect 295 252 377 265
+rect 56 196 84 252
+rect 140 196 196 252
+rect 252 196 308 252
+rect 364 196 392 252
+rect 71 183 153 196
+rect 295 183 377 196
+<< pdiff >>
+rect 71 868 153 881
+rect 295 868 377 881
+rect 71 812 84 868
+rect 56 756 84 812
+rect 71 700 84 756
+rect 140 700 196 868
+rect 252 700 308 868
+rect 364 812 377 868
+rect 364 756 392 812
+rect 364 700 377 756
+rect 71 687 153 700
+rect 295 687 377 700
+<< ndiffc >>
+rect 84 196 140 252
+rect 308 196 364 252
+<< pdiffc >>
+rect 84 700 140 868
+rect 308 700 364 868
+<< psubdiff >>
+rect 0 28 448 41
+rect 0 -28 84 28
+rect 140 -28 308 28
+rect 364 -28 448 28
+rect 0 -41 448 -28
+<< nsubdiff >>
+rect 0 1036 448 1050
+rect 0 980 84 1036
+rect 140 980 308 1036
+rect 364 980 448 1036
+rect 0 966 448 980
+<< psubdiffcont >>
+rect 84 -28 140 28
+rect 308 -28 364 28
+<< nsubdiffcont >>
+rect 84 980 140 1036
+rect 308 980 364 1036
+<< polysilicon >>
+rect 196 868 252 912
+rect 196 656 252 700
+rect 206 601 242 656
+rect 183 588 265 601
+rect 183 532 196 588
+rect 252 532 265 588
+rect 183 519 265 532
+rect 206 296 242 519
+rect 196 252 252 296
+rect 196 152 252 196
+<< polycontact >>
+rect 196 532 252 588
+<< metal1 >>
+rect 0 1036 448 1068
+rect 0 980 84 1036
+rect 140 980 308 1036
+rect 364 980 448 1036
+rect 0 948 448 980
+rect 89 882 135 948
+rect 84 868 140 882
+rect 84 686 140 700
+rect 308 868 364 882
+rect 308 686 364 700
+rect 182 532 196 588
+rect 252 583 266 588
+rect 313 583 359 686
+rect 252 537 359 583
+rect 252 532 266 537
+rect 84 252 140 266
+rect 84 182 140 196
+rect 308 252 364 280
+rect 89 60 135 182
+rect 308 168 364 196
+rect 0 28 448 60
+rect 0 -28 84 28
+rect 140 -28 308 28
+rect 364 -28 448 28
+rect 0 -60 448 -28
+<< labels >>
+rlabel metal1 392 0 392 0 3 GND
+port 1 e
+rlabel metal1 392 1008 392 1008 3 VDD
+port 2 e
+rlabel ndiffc 336 224 336 224 3 Z
+port 3 e
+<< properties >>
+string FIXED_BBOX 0 0 448 1008
+<< end >>

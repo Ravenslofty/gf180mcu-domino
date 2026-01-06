@@ -131,20 +131,26 @@ namespace eval lofty {
     paint ndiff
   }
 
-  proc pdcontact {} {
-    box grow n 0.14u
-    box grow e 0.14u
-    box grow s 0.14u
-    box grow w 0.14u
+  proc pdcontact {{width 0.28} {length 0.28}} {
+    set half_width [expr {$width / 2}]
+    set half_length [expr {$length / 2}]
+
+    # width
+    box grow n "${half_width}um"
+    box grow s "${half_width}um"
+    # length
+    box grow e "${half_length}um"
+    box grow w "${half_length}um"
     paint pdcontact
 
+    # pdiff overlap [CO.4]
     box grow n 0.065u
     box grow e 0.065u
     box grow s 0.065u
     box grow w 0.065u
     paint pdiff
 
-    # need to ensure sufficient nwell
+    # nwell overhang [DF.7]
     box grow n 0.43um
     box grow e 0.43um
     box grow s 0.43um
@@ -166,30 +172,52 @@ namespace eval lofty {
     paint poly
   }
 
-  proc nfet {} {
-    # half ndiff height
-    box grow n 0.14um
-    box grow s 0.14um
-    # poly overhang
+  proc nfet {{width 0.28} {length 0.28}} {
+    set half_width [expr {$width / 2}]
+    set half_length [expr {$length / 2}]
+    # nfet width
+    box grow n "${half_width}um"
+    box grow s "${half_width}um"
+    # nfet length
+    box grow e "${half_length}um"
+    box grow w "${half_length}um"
+    pushbox
+    # poly overhang [PL.4]
     box grow n 0.22um
     box grow s 0.22um
-    # half poly width
-    box grow e 0.14um
-    box grow w 0.14um
     paint poly
+    # ndiff overhang [DF.7]
+    popbox
+    box grow e 0.23um
+    box grow w 0.23um
+    paint ndiff
   }
 
-  proc pfet {} {
-    # half pdiff height
-    box grow n 0.14um
-    box grow s 0.14um
-    # poly overhang
+  proc pfet {{width 0.28} {length 0.28}} {
+    set half_width [expr {$width / 2}]
+    set half_length [expr {$length / 2}]
+    # pfet width
+    box grow n "${half_width}um"
+    box grow s "${half_width}um"
+    # pfet length
+    box grow e "${half_length}um"
+    box grow w "${half_length}um"
+    # poly overhang [PL.4]
+    pushbox
     box grow n 0.22um
     box grow s 0.22um
-    # half poly width
-    box grow e 0.14um
-    box grow w 0.14um
     paint poly
+    # pdiff overhang [DF.6]
+    popbox
+    box grow e 0.23um
+    box grow w 0.23um
+    paint pdiff
+    # nwell overhang [DF.7]
+    box grow n 0.43um
+    box grow e 0.43um
+    box grow s 0.43um
+    box grow w 0.43um
+    paint nwell
   }
 
   proc metal1_vertical {} {
