@@ -117,13 +117,19 @@ namespace eval lofty {
     view
   }
 
-  proc ndcontact {} {
-    box grow n 0.14u
-    box grow e 0.14u
-    box grow s 0.14u
-    box grow w 0.14u
+  proc ndcontact {{width 0.28} {length 0.28}} {
+    set half_width [expr {$width / 2}]
+    set half_length [expr {$length / 2}]
+
+    # width
+    box grow n "${half_width}um"
+    box grow s "${half_width}um"
+    # length
+    box grow e "${half_length}um"
+    box grow w "${half_length}um"
     paint ndcontact
 
+    # ndiff overlap [CO.4]
     box grow n 0.065u
     box grow e 0.065u
     box grow s 0.065u
@@ -131,7 +137,20 @@ namespace eval lofty {
     paint ndiff
   }
 
-  proc pdcontact {{width 0.28} {length 0.28}} {
+  proc ndgap {{width 0.28} {length 0.28}} {
+    set half_width [expr {$width / 2}]
+    set half_length [expr {$length / 2}]
+
+    # width
+    box grow n "${half_width}um"
+    box grow s "${half_width}um"
+    # length
+    box grow e "${half_length}um"
+    box grow w "${half_length}um"
+    erase ndiff
+  }
+
+  proc pdcontact {{width 0.84} {length 0.28}} {
     set half_width [expr {$width / 2}]
     set half_length [expr {$length / 2}]
 
@@ -156,6 +175,19 @@ namespace eval lofty {
     box grow s 0.43um
     box grow w 0.43um
     paint nwell
+  }
+
+  proc pdgap {{width 0.28} {length 0.28}} {
+    set half_width [expr {$width / 2}]
+    set half_length [expr {$length / 2}]
+
+    # width
+    box grow n "${half_width}um"
+    box grow s "${half_width}um"
+    # length
+    box grow e "${half_length}um"
+    box grow w "${half_length}um"
+    erase pdiff
   }
 
   proc polycontact {} {
@@ -193,7 +225,7 @@ namespace eval lofty {
     paint ndiff
   }
 
-  proc pfet {{width 0.28} {length 0.28}} {
+  proc pfet {{width 0.84} {length 0.28}} {
     set half_width [expr {$width / 2}]
     set half_length [expr {$length / 2}]
     # pfet width
@@ -221,9 +253,19 @@ namespace eval lofty {
   }
 
   proc metal1_vertical {} {
+    pushbox
     box grow e 0.115u
     box grow w 0.115u
     paint metal1
+    popbox
+  }
+
+  proc erase_metal1_vertical {} {
+    pushbox
+    box grow e 0.115u
+    box grow w 0.115u
+    erase metal1
+    popbox
   }
 
   proc metal1_horizontal {} {
@@ -241,9 +283,11 @@ namespace eval lofty {
   }
 
   proc poly_vertical {} {
+    pushbox
     box grow e 0.09u
     box grow w 0.09u
     paint poly
+    popbox
   }
 
   proc poly_horizontal {} {
